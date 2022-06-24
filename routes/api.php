@@ -13,10 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('apiProductos', 'ApiController@getProductos');
-Route::post('apiProductos', 'ApiController@guardarProducto');
-Route::put('apiProductos/{id}', 'ApiController@editarProducto');
-Route::delete('apiProductos/{id}', 'ApiController@eliminarProducto');
+Route::group(["middleware" => "apikey.validate"], function () {
+
+    Route::get('apiProductos', 'ApiController@getProductos');
+    Route::post('apiProductos', 'ApiController@guardarProducto');
+    Route::put('apiProductos/{id}', 'ApiController@editarProducto');
+    Route::delete('apiProductos/{id}', 'ApiController@eliminarProducto');
+    
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

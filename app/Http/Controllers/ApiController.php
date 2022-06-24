@@ -45,7 +45,7 @@ class ApiController extends Controller
 
             \DB::commit();
 
-            return array("resp" => "success", "msj" => "El registro fue exitoso");
+            return \Response::json(array("resp" => "success", "msj" => "El registro fue exitoso"));
 
         } catch (\Exception $e) {
 
@@ -84,7 +84,7 @@ class ApiController extends Controller
 
             \DB::commit();
 
-            return array("resp" => "success", "msj" => "El producto fue actualizado exitosamente");
+            return \Response::json(array("resp" => "success", "msj" => "El producto fue actualizado exitosamente"));
 
         } catch (\Exception $e) {
 
@@ -138,7 +138,7 @@ class ApiController extends Controller
             }
 
             if (!is_int($cantidad)) {
-                throw new Exception("El campo cantidad es invalido");
+                throw new Exception("El campo cantidad debe ser numerico");
             }
 
             //Validar si existe la categoria ingresada.
