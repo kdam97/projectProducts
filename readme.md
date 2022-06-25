@@ -49,7 +49,11 @@ Ya puedes acceder al servidor local con la siguiente url http://localhost:8000
     php artisan db:seed
     php artisan serve
 
+Ejecutar las pruebas unitarias
+
+    php vendor/phpunit/phpunit/phpunit --filter ProductosTest
 ----------
+
 
 # Code overview
 
